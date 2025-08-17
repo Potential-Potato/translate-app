@@ -2,6 +2,7 @@ import { useState } from "react";
 import TranslateForm from "./components/TranslateForm";
 import TranslateOutput from "./components/TranslateOutput";
 import type { langInput } from "./types/types";
+import scribe from "../public/ts.svg";
 
 const LANGS: langInput[] = [
   { code: "en", label: "English" },
@@ -60,7 +61,10 @@ function App() {
 
   return (
     <main className="flex flex-col justify-center items-center max-w-screen-2xl w-full mx-auto">
-      <h1 className="my-[6.5rem] ">Scribe</h1>
+      <div className="flex w-full h-20 justify-center items-center my-20">
+        <img src={scribe} alt="" className="object-cover w-20 h-full" />
+        <h1 className="font-sans font-bold">Scribe</h1>
+      </div>
       <section className="flex gap-5 flex-wrap justify-center">
         <TranslateForm
           onTranslate={handleTranslate}

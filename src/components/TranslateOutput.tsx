@@ -18,7 +18,7 @@ export default function TranslateOutput({
   const [copied, setCopied] = useState(false);
 
   return (
-    <section className="flex  flex-col p-4 bg-[#1a2337cc] rounded-3xl w-[38rem] h-[22rem] ">
+    <section className="flex  flex-col p-4 bg-[#1a2337cc] rounded-3xl w-[38rem] h-[22rem] border border-gray-500 ">
       <nav className="items-center flex gap-7 py-2 border-b border-gray-400">
         <div className="flex gap-7">
           {langs.map(({ code, label }) => (
@@ -46,12 +46,18 @@ export default function TranslateOutput({
         className="w-full h-[11rem] bg-transparent mt-2 p-2 text-white font-semibold"
       />
       <div className="mt-10 flex">
-        <button onClick={() => speakText(translation)}>speak</button>
+        <button
+          onClick={() => speakText(translation)}
+          className="bg-transparent text-gray-300"
+        >
+          speak
+        </button>
         <button
           onClick={() => {
             copyText(translation);
             setCopied(true);
           }}
+          className="bg-transparent text-gray-300"
         >
           {copied ? "copied" : "copy"}
         </button>

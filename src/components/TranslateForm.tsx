@@ -38,7 +38,7 @@ export default function TranslateForm({
   };
 
   return (
-    <section className="flex  flex-col p-5 bg-[#1f283cb1] rounded-3xl w-[38rem] h-[22rem] border-2 border-white">
+    <section className="flex  flex-col p-5 bg-[#1f283cb1] rounded-3xl w-[38rem] h-[22rem] border border-gray-500">
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <nav className="items-center flex gap-7 py-2 border-b border-gray-400">
           <p>Detected Language</p>
@@ -76,17 +76,25 @@ export default function TranslateForm({
         )}
         <div className="mt-2 flex justify-between">
           <div>
-            <button onClick={() => speakText(content)}>speak</button>
+            <button
+              onClick={() => speakText(content)}
+              className="bg-transparent text-gray-300"
+            >
+              speak
+            </button>
             <button
               onClick={() => {
                 copyText(content);
                 setCopied(true);
               }}
+              className="bg-transparent text-gray-300"
             >
               {copied ? "copied" : "copy"}
             </button>
           </div>
-          <button type="submit">Translate</button>
+          <button type="submit" className="bg-transparent text-gray-300">
+            Translate
+          </button>
         </div>
       </form>
     </section>
