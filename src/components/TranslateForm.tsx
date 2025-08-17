@@ -3,14 +3,20 @@ import { schema } from "../types/types";
 import type { schemaInput, langInput } from "../types/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 export default function TranslateForm({
   onTranslate,
   langs,
+  speakText,
+  copyText,
 }: {
   onTranslate: (text: string, from: string) => void;
   langs: langInput[];
+  speakText: (content: string) => void;
+  copyText: (content: string) => void;
 }) {
+  const [copied, setCopied] = useState(false);
   const form = useForm<schemaInput>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -70,8 +76,15 @@ export default function TranslateForm({
         )}
         <div className="mt-2 flex justify-between">
           <div>
-            <button type="submit">speak</button>
-            <button type="submit">copy</button>
+            <button onClick={() => speakText(content)}>speak</button>
+            <button
+              onClick={() => {
+                copyText(content);
+                setCopied(true);
+              }}
+            >
+              {copied ? "copied" : "copy"}
+            </button>
           </div>
           <button type="submit">Translate</button>
         </div>

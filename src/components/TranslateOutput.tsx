@@ -5,16 +5,17 @@ export default function TranslateOutput({
   targetLang,
   translation,
   langs,
-  sourceLang,
-  switchLang,
+  speakText,
+  copyText,
 }: {
   targetLang: (to: string) => void;
   translation: string;
   langs: langInput[];
-  sourceLang: string;
-  switchLang: (to: string, from: string) => void;
+  speakText: (content: string) => void;
+  copyText: (content: string) => void;
 }) {
   const [selectedLang, setSelectedLang] = useState(langs[1].code);
+  const [copied, setCopied] = useState(false);
 
   return (
     <section className="flex  flex-col p-4 bg-[#1a2337cc] rounded-3xl w-[38rem] h-[22rem] ">
@@ -37,9 +38,6 @@ export default function TranslateOutput({
               {label}
             </button>
           ))}
-          <button onClick={() => switchLang(sourceLang, selectedLang)}>
-            switch
-          </button>
         </div>
       </nav>
       <textarea
@@ -48,8 +46,15 @@ export default function TranslateOutput({
         className="w-full h-[11rem] bg-transparent mt-2 p-2 text-white font-semibold"
       />
       <div className="mt-10 flex">
-        <button type="button">speak</button>
-        <button type="button">copy</button>
+        <button onClick={() => speakText(translation)}>speak</button>
+        <button
+          onClick={() => {
+            copyText(translation);
+            setCopied(true);
+          }}
+        >
+          {copied ? "copied" : "copy"}
+        </button>
       </div>
     </section>
   );

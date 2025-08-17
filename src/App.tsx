@@ -41,23 +41,39 @@ function App() {
     setTargetLang(to);
   };
 
-  const handleSwitchLangs = (from: string, to: string) => {
-    setTargetLang(from);
-    setSourceLang(to);
-    setTranslation(""); // clear previous translation
+  const speakText = (content: string) => {
+    const textToSpeak = content?.trim() || "Hello, how are you";
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    utterance.lang = sourceLang; // set language for correct pronunciation
+    window.speechSynthesis.cancel(); // stop any ongoing speech
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const copyText = async (content: string) => {
+    if (!content) return; // nothing to copy
+    try {
+      navigator.clipboard.writeText(content);
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
   };
 
   return (
     <main className="flex flex-col justify-center items-center max-w-screen-2xl w-full mx-auto">
       <h1 className="my-[6.5rem] ">Scribe</h1>
       <section className="flex gap-5 flex-wrap justify-center">
-        <TranslateForm onTranslate={handleTranslate} langs={LANGS} />
+        <TranslateForm
+          onTranslate={handleTranslate}
+          langs={LANGS}
+          speakText={speakText}
+          copyText={copyText}
+        />
         <TranslateOutput
           translation={translation}
           langs={LANGS}
-          sourceLang={sourceLang}
           targetLang={handleTargetLang}
-          switchLang={handleSwitchLangs}
+          speakText={speakText}
+          copyText={copyText}
         />
       </section>
     </main>
