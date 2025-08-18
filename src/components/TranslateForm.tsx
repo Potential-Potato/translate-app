@@ -3,7 +3,8 @@ import { schema } from "../types/types";
 import type { schemaInput, langInput } from "../types/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import speaker from "../../public/speaker.svg";
+import copy from "../../public/Copy.svg";
 
 export default function TranslateForm({
   onTranslate,
@@ -16,7 +17,6 @@ export default function TranslateForm({
   speakText: (content: string) => void;
   copyText: (content: string) => void;
 }) {
-  const [copied, setCopied] = useState(false);
   const form = useForm<schemaInput>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -78,21 +78,28 @@ export default function TranslateForm({
           <div>
             <button
               onClick={() => speakText(content)}
-              className="bg-transparent text-gray-300"
+              className="bg-transparent text-gray-300 w-50 h-10"
             >
-              speak
+              <img src={speaker} className="w-full h-full object-contain" />
             </button>
             <button
               onClick={() => {
                 copyText(content);
-                setCopied(true);
               }}
-              className="bg-transparent text-gray-300"
+              className="bg-transparent text-gray-300 w-50 h-10"
             >
-              {copied ? "copied" : "copy"}
+              <img src={copy} className="w-full h-full object-contain" />
             </button>
           </div>
-          <button type="submit" className="bg-transparent text-gray-300">
+          <button
+            type="submit"
+            className="   bg-transparent text-gray-300 
+            px-4 py-2 rounded-lg 
+            transition-colors duration-200
+            hover:bg-gray-700 hover:text-white 
+            active:scale-95 
+            focus:ring-2 focus:ring-gray-500 focus:outline-none"
+          >
             Translate
           </button>
         </div>

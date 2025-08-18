@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { langInput } from "../types/types";
+import speaker from "../../public/speaker.svg";
+import copy from "../../public/Copy.svg";
 
 export default function TranslateOutput({
   targetLang,
@@ -15,7 +17,6 @@ export default function TranslateOutput({
   copyText: (content: string) => void;
 }) {
   const [selectedLang, setSelectedLang] = useState(langs[1].code);
-  const [copied, setCopied] = useState(false);
 
   return (
     <section className="flex  flex-col p-4 bg-[#1a2337cc] rounded-3xl w-[38rem] h-[22rem] border border-gray-500 ">
@@ -48,18 +49,17 @@ export default function TranslateOutput({
       <div className="mt-10 flex">
         <button
           onClick={() => speakText(translation)}
-          className="bg-transparent text-gray-300"
+          className="bg-transparent text-gray-300 w-50 h-10"
         >
-          speak
+          <img src={speaker} className="w-full h-full object-contain" />
         </button>
         <button
           onClick={() => {
             copyText(translation);
-            setCopied(true);
           }}
-          className="bg-transparent text-gray-300"
+          className="bg-transparent text-gray-300 w-50 h-10"
         >
-          {copied ? "copied" : "copy"}
+          <img src={copy} className="w-full h-full object-contain" />
         </button>
       </div>
     </section>
