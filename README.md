@@ -12,7 +12,7 @@
 
 Scribe is a lightweight translation tool built with React + TypeScript + TailwindCSS. It integrates with the MyMemory Translation API to provide instant text translation between multiple languages. The app includes speech synthesis and clipboard utilities, making it useful for quick translations, pronunciation practice, and sharing text.
 
-Live demo: translate-app-steel-rho.vercel.app
+Live demo: https://translate-app-steel-rho.vercel.app
 
 ## Key Components
 
