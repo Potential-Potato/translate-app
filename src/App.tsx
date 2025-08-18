@@ -11,14 +11,12 @@ const LANGS: langInput[] = [
 ];
 
 function App() {
-  const [sourceText, setSourceText] = useState("Hello, how are you");
   const [sourceLang, setSourceLang] = useState("en");
   const [targetLang, setTargetLang] = useState("fr");
   const [translation, setTranslation] = useState("");
 
   // // translation form (passes sourcetext, sourcelang)
   const handleTranslate = async (text: string, from: string) => {
-    setSourceText(text);
     setSourceLang(from);
 
     try {
