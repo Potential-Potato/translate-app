@@ -1,4 +1,8 @@
-<img src="./public/ts.svg" alt="" align="center" width="225" height="150"><h1 align="center">Scribe</h1>
+<div align="center">
+  <img src="./public/translate2.svg" alt="logo" width="250" height="250" />
+  <h1>Scribe</h1>
+</div>
+
 
 <p align="center"><a href="#project-description">Project Description</a> - <a href="#key-features">Key Features</a> - <a href="#technology-stack">Tech Stack</a></p>
 
