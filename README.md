@@ -1,5 +1,8 @@
 <div align="center">
-  <img src="./public/translate2.svg" alt="logo" width="250" height="250" />
+    <a href="https://scribe-eight-mu.vercel.app/" target="_blank">
+    <img src="./public/translate2.svg" alt="logo" width="250" height="250" />
+    </a>
+
   <h1>Scribe</h1>
 </div>
 
@@ -12,7 +15,7 @@
 
 Scribe is a lightweight translation tool built with React + TypeScript + TailwindCSS. It integrates with the MyMemory Translation API to provide instant text translation between multiple languages. The app includes speech synthesis and clipboard utilities, making it useful for quick translations, pronunciation practice, and sharing text.
 
-Live demo: https://scribe-eight-mu.vercel.app/
+🔗 [Live Demo](https://scribe-eight-mu.vercel.app/)
 
 ## Key Components
 
