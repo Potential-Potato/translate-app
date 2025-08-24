@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { langInput } from "../types/types";
-import speaker from "../../public/speaker.svg";
+import speaker from "/public/speaker.svg";
 import copy from "/public/Copy.svg";
 
 export default function TranslateOutput({

@@ -3,7 +3,7 @@ import { schema } from "../types/types";
 import type { schemaInput, langInput } from "../types/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import speaker from "../../public/speaker.svg";
+import speaker from "/public/speaker.svg";
 import copy from "/public/Copy.svg";
 
 export default function TranslateForm({
