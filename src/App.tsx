@@ -58,12 +58,12 @@ function App() {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center max-w-screen-2xl w-full mx-auto">
-      <div className="flex w-full h-20 justify-center items-center my-20">
+    <main className="flex flex-col items-center justify-center w-full min-h-screen p-4">
+      <div className="flex items-center justify-center gap-3 mb-6">
         <img src={scribe} alt="" className="object-cover w-20 h-full" />
         <h1 className="font-sans font-bold">Scribe</h1>
       </div>
-      <section className="flex gap-5 flex-wrap justify-center">
+      <section className="flex flex-col w-full max-w-6xl gap-5 md:flex-row">
         <TranslateForm
           onTranslate={handleTranslate}
           langs={LANGS}

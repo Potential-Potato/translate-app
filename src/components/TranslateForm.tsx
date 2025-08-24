@@ -4,7 +4,7 @@ import type { schemaInput, langInput } from "../types/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import speaker from "../../public/speaker.svg";
-import copy from "../../public/Copy.svg";
+import copy from "/public/Copy.svg";
 
 export default function TranslateForm({
   onTranslate,
@@ -38,11 +38,11 @@ export default function TranslateForm({
   };
 
   return (
-    <section className="flex  flex-col p-5 bg-[#1f283cb1] rounded-3xl w-[38rem] h-[22rem] border border-gray-500">
+    <section className="flex flex-col flex-1 p-5 rounded-3xl border border-gray-500 bg-[#1f283cb1] min-w-[280px]">
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <nav className="items-center flex gap-7 py-2 border-b border-gray-400">
+        <nav className="flex flex-wrap items-center gap-3 py-2 border-b border-gray-400">
           <p>Detected Language</p>
-          <div className="flex gap-7">
+          <div className="flex gap-3">
             {langs.map(({ code, label }) => (
               <button
                 key={code}
@@ -62,43 +62,38 @@ export default function TranslateForm({
         <textarea
           {...form.register("content")}
           placeholder="Hello, how are you?"
-          className="w-full h-[11rem] bg-transparent mt-2 p-2 text-white font-semibold"
+          className="min-w-0 w-full h-[11rem] bg-transparent mt-2 p-2 text-white font-semibold"
           maxLength={maxChars}
         />
-        <p className="text-right text-xs text-gray-300">
+        <p className="text-xs text-right text-gray-300">
           {content?.length || 0} / {maxChars}
         </p>
 
         {form.formState.errors.content && (
-          <p className="text-red-500 text-sm">
+          <p className="text-sm text-red-500">
             {form.formState.errors.content.message}
           </p>
         )}
-        <div className="mt-2 flex justify-between">
+        <div className="flex justify-between mt-2">
           <div>
             <button
               onClick={() => speakText(content)}
-              className="bg-transparent text-gray-300 w-50 h-10"
+              className="h-10 text-gray-300 bg-transparent min-w-10 "
             >
-              <img src={speaker} className="w-full h-full object-contain" />
+              <img src={speaker} className="object-contain w-full h-full" />
             </button>
             <button
               onClick={() => {
                 copyText(content);
               }}
-              className="bg-transparent text-gray-300 w-50 h-10"
+              className="h-10 text-gray-300 bg-transparent w-50"
             >
-              <img src={copy} className="w-full h-full object-contain" />
+              <img src={copy} className="object-contain w-full h-full" />
             </button>
           </div>
           <button
             type="submit"
-            className="   bg-transparent text-gray-300 
-            px-4 py-2 rounded-lg 
-            transition-colors duration-200
-            hover:bg-gray-700 hover:text-white 
-            active:scale-95 
-            focus:ring-2 focus:ring-gray-500 focus:outline-none"
+            className="px-4 py-2 text-gray-300 transition-colors duration-200 bg-transparent rounded-lg hover:bg-gray-700 hover:text-white active:scale-95 focus:ring-2 focus:ring-gray-500 focus:outline-none"
           >
             Translate
           </button>

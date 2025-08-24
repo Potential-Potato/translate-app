@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .debug {
-  @apply border-2 border-dashed border-red-500;
+  @apply border-2 border-red-500 border-dashed;
+}
+
+.debug2 {
+  @apply border-2 border-blue-500 border-dashed;
 }
 
 .bg-hero {
@@ -41,8 +45,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   color: white;
   min-width: 320px;
   min-height: 100vh;
@@ -85,4 +87,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+:root,
+body {
+  width: 100%;
+  height: 100%;
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { langInput } from "../types/types";
 import speaker from "../../public/speaker.svg";
-import copy from "../../public/Copy.svg";
+import copy from "/public/Copy.svg";
 
 export default function TranslateOutput({
   targetLang,
@@ -19,9 +19,9 @@ export default function TranslateOutput({
   const [selectedLang, setSelectedLang] = useState(langs[1].code);
 
   return (
-    <section className="flex  flex-col p-4 bg-[#1a2337cc] rounded-3xl w-[38rem] h-[22rem] border border-gray-500 ">
-      <nav className="items-center flex gap-7 py-2 border-b border-gray-400">
-        <div className="flex gap-7">
+    <section className="flex flex-col flex-1 p-5 rounded-3xl border border-gray-500 bg-[#1f283cb1] min-w-[280px]">
+      <nav className="flex flex-wrap items-center gap-3 py-2 border-b border-gray-400">
+        <div className="flex gap-3">
           {langs.map(({ code, label }) => (
             <button
               key={code}
@@ -33,7 +33,7 @@ export default function TranslateOutput({
               className={`px-3 py-1 h-10 rounded-lg text-sm font-semibold ${
                 selectedLang === code
                   ? "bg-btnBg text-white font-bold"
-                  : "bg-transparent  text-gray-300"
+                  : "bg-transparent text-gray-300"
               }`}
             >
               {label}
@@ -46,20 +46,20 @@ export default function TranslateOutput({
         readOnly
         className="w-full h-[11rem] bg-transparent mt-2 p-2 text-white font-semibold"
       />
-      <div className="mt-10 flex">
+      <div className="flex mt-10">
         <button
           onClick={() => speakText(translation)}
-          className="bg-transparent text-gray-300 w-50 h-10"
+          className="h-10 text-gray-300 bg-transparent w-50"
         >
-          <img src={speaker} className="w-full h-full object-contain" />
+          <img src={speaker} className="object-contain w-full h-full" />
         </button>
         <button
           onClick={() => {
             copyText(translation);
           }}
-          className="bg-transparent text-gray-300 w-50 h-10"
+          className="h-10 text-gray-300 bg-transparent w-50"
         >
-          <img src={copy} className="w-full h-full object-contain" />
+          <img src={copy} className="object-contain w-full h-full" />
         </button>
       </div>
     </section>
